@@ -1,67 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>EXACTO GST Calculator</title>
 
-<style>
-
-body{
-font-family:Arial;
-background:black;
-color:white;
-text-align:center;
-padding:40px;
-}
-
-h1{
-color:#ffcc00;
-}
-
-select,input,button{
-padding:10px;
-margin:10px;
-border-radius:8px;
-border:none;
-font-size:16px;
-}
-
-button{
-background:red;
-color:white;
-cursor:pointer;
-}
-
-.offer-section{
-margin-top:40px;
-}
-
-.offer-container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.offer-card{
-width:220px;
-padding:20px;
-border-radius:15px;
-background:linear-gradient(135deg,#ff0000,#ff9900);
-color:white;
-font-weight:bold;
-box-shadow:0 6px 15px rgba(0,0,0,0.4);
-}
-
-.offer-card h3{
-margin:0;
-font-size:22px;
-}
-
-.offer-card p{
-margin-top:10px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -69,8 +12,12 @@ margin-top:10px;
 
 <h1>EXACTO GST Calculator</h1>
 
+<div class="calculator">
+
 <select id="category">
-<option>-- Select Category --</option>
+
+<option value="">-- Select Category --</option>
+
 <option>Automobiles</option>
 <option>Clothing</option>
 <option>Dairy</option>
@@ -81,87 +28,52 @@ margin-top:10px;
 <option>Luxury & Sin Goods</option>
 <option>Pharmaceuticals</option>
 <option>Vegetables</option>
+
 </select>
 
-<br>
-
-<input type="number" id="price" placeholder="Enter Price">
-
-<br>
+<input type="number" id="price" placeholder="Enter Item Price">
 
 <button onclick="calculateGST()">Calculate GST</button>
 
 <h2 id="result"></h2>
 
+</div>
+
 <hr>
-
-<!-- OFFER SECTION -->
-
-<div class="offer-section">
 
 <h1>🔥 Special Offers</h1>
 
-<div class="offer-container">
+<div class="offers">
 
-<div class="offer-card">
-<h3>30% OFF</h3>
+<div class="offerCard">
+<h2>30% OFF</h2>
 <p>Electronics</p>
-<p>Mobile Phones</p>
-<p>Tablets</p>
+<p>Mobiles</p>
+<p>Headphones</p>
 </div>
 
-<div class="offer-card">
-<h3>50% OFF</h3>
+<div class="offerCard">
+<h2>50% OFF</h2>
 <p>Clothing</p>
 <p>Shirts</p>
 <p>Jeans</p>
 </div>
 
-<div class="offer-card">
-<h3>Buy 1 Get 1</h3>
+<div class="offerCard">
+<h2>Buy 1 Get 1</h2>
 <p>Snacks</p>
-<p>Soft Drinks</p>
+<p>Chocolates</p>
 </div>
 
-<div class="offer-card">
-<h3>2 + 1 Offer</h3>
+<div class="offerCard">
+<h2>2 + 1 Offer</h2>
 <p>Fruits</p>
 <p>Vegetables</p>
 </div>
 
 </div>
 
-</div>
-
-<script>
-
-function calculateGST(){
-
-let price=document.getElementById("price").value;
-let category=document.getElementById("category").value;
-
-let gst=0;
-
-if(category=="Automobiles") gst=28;
-else if(category=="Clothing") gst=12;
-else if(category=="Dairy") gst=5;
-else if(category=="Electronics") gst=18;
-else if(category=="Fruits") gst=0;
-else if(category=="Grocery") gst=5;
-else if(category=="Household Items") gst=12;
-else if(category=="Luxury & Sin Goods") gst=28;
-else if(category=="Pharmaceuticals") gst=12;
-else if(category=="Vegetables") gst=0;
-
-let gstAmount=(price*gst)/100;
-let total=parseFloat(price)+gstAmount;
-
-document.getElementById("result").innerHTML=
-"GST: ₹"+gstAmount+" | Total Price: ₹"+total;
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
