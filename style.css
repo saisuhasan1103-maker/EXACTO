@@ -1,159 +1,105 @@
-/* ================== GLOBAL ================== */
+body{
 
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    background: radial-gradient(circle at top, #1a0000, #000000 70%);
-    overflow-y: auto;
-    color: white;
+font-family: Arial;
+
+background: linear-gradient(135deg,#000000,#1a0000);
+
+color:white;
+
+text-align:center;
+
+padding:40px;
+
 }
 
-/* ================== APP CONTAINER ================== */
+h1{
 
-.app-container {
-    max-width: 520px;
-    margin: 40px auto;
-    padding: 20px;
+color:gold;
+
 }
 
-/* ================== HEADINGS ================== */
+select,input{
 
-h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 42px;
-    text-align: center;
-    color: #ff0000;
-    margin-bottom: 5px;
-    letter-spacing: 3px;
+padding:12px;
+
+border-radius:8px;
+
+border:none;
+
+margin:10px;
+
+width:220px;
+
 }
 
-.project-tag {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
+button{
+
+padding:12px;
+
+border:none;
+
+border-radius:8px;
+
+background:red;
+
+color:white;
+
+font-size:16px;
+
+cursor:pointer;
+
 }
 
-/* ================== CARD ================== */
+button:hover{
 
-.card {
-    background: #0a0a0a;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
-    margin-bottom: 20px;
+background:#ff3333;
+
 }
 
-/* ================== LABELS ================== */
+.offers{
 
-label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #ff2a2a;
-    font-weight: bold;
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:40px;
+
 }
 
-/* ================== INPUTS ================== */
+.offerCard{
 
-input,
-select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ff0000;
-    background: #1a1a1a;
-    color: white;
-    font-size: 15px;
-    outline: none;
-    transition: 0.3s ease;
+background:linear-gradient(135deg,#ff0000,#ff9900);
+
+padding:20px;
+
+border-radius:15px;
+
+width:200px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+
+transition:0.3s;
+
 }
 
-input:focus,
-select:focus {
-    border-color: #ff4444;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+.offerCard:hover{
+
+transform:scale(1.1);
+
 }
 
-/* ================== BUTTONS ================== */
+.offerCard h2{
 
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 20px;
-    border-radius: 12px;
-    border: none;
-    background: linear-gradient(45deg, #ff0000, #990000);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
+color:white;
+
 }
 
-button:hover {
-    transform: scale(1.03);
-    background: linear-gradient(45deg, #ff1a1a, #cc0000);
-}
+.offerCard p{
 
-/* ================== CART SECTION ================== */
+margin:5px;
 
-.cart-heading {
-    color: white;
-    margin-bottom: 10px;
-}
-
-#cartList {
-    color: #ffffff;
-    margin-top: 10px;
-}
-
-#cartList div {
-    color: #ffffff;
-    font-size: 15px;
-    margin-bottom: 12px;
-    padding: 12px;
-    background: rgba(255, 0, 0, 0.08);
-    border-radius: 10px;
-    border-left: 4px solid #ff0000;
-}
-
-/* REMOVE BUTTON */
-
-#cartList button {
-    background: #ff0000;
-    color: #ffffff;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 8px;
-    width: auto;
-}
-
-#cartList button:hover {
-    background: #cc0000;
-}
-
-/* ================== RESULT SECTION ================== */
-
-.result-card {
-    background: #111111;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-}
-
-.result-card h3 {
-    color: #ff0000;
-    margin-bottom: 10px;
-}
-
-/* ================== SCROLL FIX ================== */
-
-html {
-    scroll-behavior: smooth;
 }
