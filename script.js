@@ -157,6 +157,7 @@ window.addItem = function() {
     const item = itemSelect.value;
     const price = parseFloat(document.getElementById("price").value);
     const itemDiscount = parseFloat(document.getElementById("itemDiscount").value) || 0;
+    const offer = document.getElementById("offer").value;
 
     if (!category || !item || !price) {
         alert("Fill all details!");
@@ -173,7 +174,7 @@ window.addItem = function() {
         return;
     }
 
-    cart.push({ category, item, price, quantity, gst: data.gst, itemDiscount });
+    cart.push({ category, item, price, quantity, gst: data.gst, itemDiscount, offer });
     renderCart();
 };
 
@@ -185,7 +186,7 @@ function renderCart() {
         cartDiv.innerHTML += `
             <div>
                 ${p.item} (${p.quantity}) - ₹${p.price}
-                | Discount: ${p.itemDiscount}%
+                | Discount: ${p.itemDiscount}% | Offer: ${p.offer}
                 <button onclick="removeItem(${i})">Remove</button>
             </div>
         `;
@@ -212,6 +213,36 @@ window.calculateFinalBill = function() {
         let originalAmount = p.price * p.quantity;
         let discountAmount = originalAmount * p.itemDiscount / 100;
         let afterDiscount = originalAmount - discountAmount;
+
+        let offerText = "None";
+
+        if (p.offer === "20") {
+            afterDiscount *= 0.8;
+            offerText = "20% OFF";
+        }
+
+        if (p.offer === "30") {
+            afterDiscount *= 0.7;
+            offerText = "30% OFF";
+        }
+
+        if (p.offer === "50") {
+            afterDiscount *= 0.5;
+            offerText = "50% OFF";
+        }
+
+        if (p.offer === "b1g1") {
+            let payableQty = Math.ceil(p.quantity / 2);
+            afterDiscount = p.price * payableQty;
+            offerText = "Buy 1 Get 1";
+        }
+
+        if (p.offer === "b2g2") {
+            let payableQty = Math.ceil(p.quantity / 2);
+            afterDiscount = p.price * payableQty;
+            offerText = "Buy 2 Get 2";
+        }
+
         let gstAmount = afterDiscount * p.gst / 100;
         let finalItemTotal = afterDiscount + gstAmount;
 
@@ -222,7 +253,8 @@ window.calculateFinalBill = function() {
                 <strong>Item ${index + 1}: ${p.item}</strong><br>
                 Original Amount: ₹${originalAmount.toFixed(2)}<br>
                 Discount: ₹${discountAmount.toFixed(2)}<br>
-                Amount After Discount: ₹${afterDiscount.toFixed(2)}<br>
+                Offer Applied: ${offerText}<br>
+                Amount After Discount/Offer: ₹${afterDiscount.toFixed(2)}<br>
                 GST (${p.gst}%): ₹${gstAmount.toFixed(2)}<br>
                 <strong>Final Item Total: ₹${finalItemTotal.toFixed(2)}</strong>
             </div>
